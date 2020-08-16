@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Sign Up</title>
+  {% load static %}
+  
+  
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      <link rel="stylesheet" href="{% static 'project/login/css/style.css' %}">
+	  
+	  <script type="text/javascript" src="{% static 'project/js/jquery-1.4.0.min.js' %}"></script>
+	  <!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
+	  
+</head>
+
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			if(sessionStorage.getItem("loginSuccess") == "true"){
+				document.querySelector('.col_md_login').style.display = "none";
+				document.querySelector('.cont_form_login').style.display = "none";
+				document.querySelector('.col_md_logout').style.display = "block";
+			}
+	  });
+	</script>
+
+<!--header
+-->
+		<div id="header">
+			<div>
+				<a href="/index" class="logo"><img src="{% static 'project/images/logo.png' %}" width="340" height="55" alt="Logo"></a>
+				<ul id="navigation">
+					<li class="menu selected">
+						<a href="/index">Home</a>
+					</li>
+					<li>
+						<a href="/physical_outcome_measures">Physical outcome measures</a>
+					</li>
+					<li>
+						<a href="/measurement_research">measurement research</a>	
+					</li>
+					<li>
+						<a href="/self-reported_measures">self-reported measures</a>
+						
+					</li>
+					<li>
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+				<a href="/index" class="login"><img src="{% static 'project/images/login.png' %}" width="50" height="50"alt=""></a>
+			</div>
+		</div>
+
+  <div class="cotn_principal">
+		<div class="cont_centrar">
+
+			  <div class="cont_login"  onload="checklogin()">
+					<div class="cont_info_log_sign_up">
+						<div class="col_md_login">
+							<div class="cont_ba_opcitiy">
+							  <h2>LOGIN</h2>  
+							  <p>Login to calculate your health situation.</p> 
+							  <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+							</div>
+						</div>
+						
+						<div class="col_md_logout" style = "display:none">
+							<div class="cont_ba_opcitiy">
+							  <h2>LOGOUT</h2>  
+							  <p>Leave 1000 Norms Project website.</p>
+							  <button class="btn_logout" onclick="real_logout()">LOGOUT</button>
+							</div>
+						</div>
+						
+						<div class="col_md_sign_up">
+							<div class="cont_ba_opcitiy">
+							  <h2>SIGN UP</h2>
+							  <p>Sign up to our website to do the calculation.</p>
+                              <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+							</div>
+						</div>
+					</div>
+
+				
+					<div class="cont_back_info">
+					   <div class="cont_img_back_grey">
+					      <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+					   </div>
+					   
+					</div>
+					<div class="cont_forms" >
+						<div class="cont_img_back_">
+						   <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+						</div>
+						 {% csrf_token %}
+						<div class="cont_form_login">
+						   
+						   <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+						   
+						   <h2>LOGIN</h2>
+							<input type="text" id="login_email" placeholder="Email" required>
+							<input type="password" id="login_password" placeholder="Password" required>
+							<!--<button class="btn_login" id="login_button"  onclick="real_login()">LOGIN</button>-->
+							<button class="btn_login" id="login_button">LOGIN</button>
+						</div>
+						
+						
+					  
+						<div class="cont_form_sign_up">
+						    
+						    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+							
+							 <h2>SIGN UP</h2>
+							<input type="email" id="sign_up_email" placeholder="Email" required>
+							<input type="text" id="sign_up_user" placeholder="User" required>
+							<input type="password" id="sign_up_password" placeholder="Password" required>
+							<input type="password" id="sign_up_confirm_password" placeholder="Confirm Password" required>
+							<button class="btn_sign_up" onclick="real_sign_up()">SIGN UP</button>
+
+						</div>
+
+					</div>
+				
+			  </div>
+		 </div>
+</div>
+  <script  src="{% static 'project/login/js/index.js' %}"></script>
+  <script  src="{% static 'project/js/backend.js' %}"></script>	
+</body>
+
+</html>

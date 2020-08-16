@@ -1,0 +1,408 @@
+<!doctype html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>motiontest</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'project/css/style.css' %}" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'project/css/mobile.css' %}">
+	<script src="{% static 'project/js/mobile.js' %}" type="text/javascript"></script>
+
+  	<script type="text/javascript" src="{% static 'project/js/jquery-1.4.0.min.js' %}"></script>
+	<script src="{% static 'project/js/checkinputvalid.js' %}" type="text/javascript"></script>
+	<script src="{% static 'project/js/parameterdescription.js' %}" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			if(sessionStorage.getItem("loginSuccess") == "true"){
+				document.getElementById("loginword").style.display = "none";
+				document.getElementById("loginlogo").style.display = "block";
+			}
+	  });
+	  
+	</script>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="/index" class="logo"><img src="{% static 'project/images/logo.png' %}" width="340" height="55" alt="Logo"></a>
+				<ul id="navigation">
+		          <li>
+		            <a href="/index">Home</a>
+		          </li>
+		          <li class="selected">
+		            <a href="/physical_outcome_measures">Physical outcome measures</a>
+		          </li>
+		          <li>
+		            <a href="/measurement_research">measurement research</a>  
+		          </li>
+		          <li>
+		            <a href="/self-reported_measures">self-reported measures</a>
+		            
+		          </li>
+		          <li>
+		            <a href="/contact">Contact</a>
+		          </li>
+		          <li>
+		            <a id="loginword" href="/login">Login</a>
+		          </li>
+		        </ul>
+						
+						<!--
+						<a href="login/index.html" class="login"><img src="images/login.png" width="50" height="50"alt=""></a>
+						-->
+				<a href="/login" class="login" id="loginlogo" style="display:none"><img src="{% static 'project/images/login.png' %}" width="50" height="50"alt=""></a>
+			</div>
+		</div>
+		{% csrf_token %}
+    <div id="body">
+      <div class="iso_head">
+        <h1> Joint Range of Motion </h1>
+      </div>
+      <div class="participant">
+          <h2>Participant Details</h2>
+          <div class="left">
+            <img src="{% static 'project/images/age.png' %}" width="60" height="60" alt="age">
+            <p>Age</p>
+            <input type="text" style="width:60px; height:23px" name="Age">
+            <p>years</p>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/gender.png' %}" width="60" height="60" alt="gender">
+            <p>Gender</p>
+            <select id="id_gender" name="gender"> 
+                    <option value="male">male</option> 
+                    <option value="female">female</option> 
+                </select> 
+          </div>
+      </div>
+      <div class="raws">
+          <h2>raw scores</h2>
+          <div class="left">
+            <img src="{% static 'project/images/Neck flexion.png' %}" width="60" height="60" alt="Neck flexion" onclick="popDescription(alt)">
+            <p>Neck flexion</p>
+            <input type="text" style="width:60px; height:23px" name="Neck flexion">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Neck flexion" style = "display:none">
+					<div class="title">Assessment Position: </div>
+						The participant is seated with their weight evenly distributed through their ischial tuberosities and their feet comfortably supported and shoulder width apart. The participant rests gently against the backrest of the chair. The inclinometer is firmly held by the examiner over the midline of the skull in the sagittal plane and zeroed at this point.
+					<div class="title">Assessment Procedures: </div>
+						The examiner demonstrates the movements, and then says:<br>Flexion: “I am going to measure how much movement you have in your neck. Please bend your head down as far as possible, taking your chin towards your chest.”
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Neck extension.png' %}" width="60" height="60" alt="Neck extension" onclick="popDescription(alt)">
+            <p>Neck extension</p>
+            <input type="text" style="width:60px; height:23px" name="Neck extension">
+            <p>Degrees</p>
+			<div class="rightDescription">
+			  <span id="Neck extension" style = "display:none">
+					<div class="title">Assessment Position: </div>
+						The participant is seated with their weight evenly distributed through their ischial tuberosities and their feet comfortably supported and shoulder width apart. The participant rests gently against the backrest of the chair. The inclinometer is firmly held by the examiner over the midline of the skull in the sagittal plane and zeroed at this point.
+					<div class="title">Assessment Procedures: </div>
+					The examiner demonstrates the movements, and then says:<br>
+					Extension: “Now please move your head back as far as possible, looking up towards the ceiling.”
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Plantarflexion.png' %}" width="60" height="60" alt="Plantarflexion" onclick="popDescription(alt)">
+            <p>Plantarflexion</p>
+            <input type="text" style="width:60px; height:23px" name="Plantarflexion">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Plantarflexion" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						The participant is seated upright on the plinth, with their knee in 90° of flexion and foot in neutral.
+						<li>Goniometer Axis: Over the lateral calcaneus at bisection of fibula and 5th metatarsal</li>
+						<li>Proximal Arm: Parallel to the long axis of the fibula pointing towards the fibular head</li>
+						<li>Distal Arm: Parallel to the long axis of the 5th metatarsal
+					<div class="title">The examiner says: </div>
+						"I am going to measure how much movement you have in your ankle. Can you please bend your foot pointing your toes towards the ground."</li>
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Dorsiflexion.png' %}" width="60" height="60" alt="Dorsiflexion" onclick="popDescription(alt)">
+            <p>Dorsiflexion</p>
+            <input type="text" style="width:60px; height:23px" name="Dorsiflexion">
+            <p>cm</p>
+			<div class="rightDescription">
+			  <span id="Dorsiflexion" style = "display:none">
+					<div class="title">The examiner says: </div>
+						"I am now going to measure how much movement you have in your ankle. Keeping your heel on the ground I want you to bend your knee to the line on the wall so that it just touches the wall. Then, keep sliding your foot back along the line until you reach the point where you cannot touch the wall without your heel coming off the ground. Keep your hips facing the wall. You can rest your other leg wherever you are comfortable and put your hands on the wall for support."
+					<div class="title">Scoring:</div>
+						The angle of the lower leg from vertical is recorded to the nearest degree.
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Knee flexion.png' %}" width="60" height="60" alt="Knee flexion" onclick="popDescription(alt)">
+            <p>Knee flexion</p>
+            <input type="text" style="width:60px; height:23px" name="Knee flexion">
+            <p>Newtons</p>
+			<div class="leftDescription">
+			  <span id="Knee flexion" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+					The participant is supine on the plinth with the knee in extension. The hip is positioned in 0° of extension, adduction and abduction. A rolled-up towel is placed underneath the participant’s ankle for measurement of extension.
+					<li>Goniometer Axis: Over the lateral epicondyle of the femur</li>
+					<li>Proximal Arm: Parallel to the long axis of the femur pointing towards the greater trochanter</li>
+					<li>Distal Arm: Parallel to the long axis of the fibula pointing towards the lateral malleolus </li>
+					<div class="title">The examiner says: </div>
+						Flexion: "I am going to measure how much movement you have in your knee. Can you please bend your knee, bringing your heel towards your buttock as far as possible."
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Knee extension.png' %}" width="60" height="60" alt="Knee extension" onclick="popDescription(alt)">
+            <p>Knee extension</p>
+            <input type="text" style="width:60px; height:23px" name="Knee extension">
+            <p>Degrees</p>
+			<div class="rightDescription">
+			  <span id="Knee extension" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+					The participant is supine on the plinth with the knee in extension. The hip is positioned in 0° of extension, adduction and abduction. A rolled-up towel is placed underneath the participant’s ankle for measurement of extension.
+					<li>Goniometer Axis: Over the lateral epicondyle of the femur</li>
+					<li>Proximal Arm: Parallel to the long axis of the femur pointing towards the greater trochanter</li>
+					<li>Distal Arm: Parallel to the long axis of the fibula pointing towards the lateral malleolus</li>
+					<div class="title">The examiner says: </div>
+					Extension: "I am going to measure how much movement you have in your knee. Can you please straighten your knee as much as possible."
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Hip flexion.png' %}" width="60" height=60" alt="Hip flexion" onclick="popDescription(alt)">
+            <p>Hip flexion</p>
+            <input type="text" style="width:60px; height:23px" name="Hip flexion">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Hip flexion" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						The participant is positioned in supine on the plinth, their knees extended and hips in 0° of abduction, adduction and rotation.
+						<li>Goniometer Axis: Over the lateral aspect of the hip joint, using the femoral greater trochanter for reference </li>
+						<li>Proximal Arm: Aligned with the lateral midline of the pelvis along midaxillary line of the trunk</li>
+						<li>Distal Arm: Parallel to longitudinal axis of the femur pointing towards lateral femoral condyle</li>
+					<div class="title">The examiner says: </div>
+						"I am going to measure how much movement you have in your hip. Can you please bring your knee up towards your chest as far as possible."
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Hip external rotators.png' %}" width="60" height="60" alt="Hip external rotators" onclick="popDescription(alt)">
+            <p>Hip external rotators</p>
+            <input type="text" style="width:60px; height:23px" name="Hip external rotators">
+            <p>Newtons</p>
+			<div class="rightDescription">
+			  <span id="Hip external rotators" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						Assessment Position and Procedures: The participant is seated upright on the plinth with the hip and knee flexed at 90°. The opposite limb is slightly abducted and resting on a foot stool.
+						<li>Goniometer Axis: Mid patella</li>
+						<li>Proximal Arm: Perpendicular to the floor</li>
+						<li>Distal Arm: Parallel to longitudinal axis of the tibia</li>
+					<div class="title">The examiner says: </div>
+						"I am going to measure how much rotation you have in your hip. Can you please bring your foot in towards your other leg as far as possible, taking care not to twist or lift off the plinth."
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Hip internal rotators.png' %}" width="60" height="60" alt="Hip internal rotators" onclick="popDescription(alt)">
+            <p>Hip internal rotators</p>
+            <input type="text" style="width:60px; height:23px" name="Hip internal rotators">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Hip internal rotators" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						The participant is seated upright on the plinth with the hip and knee flexed at 90°. The opposite limb is slightly abducted and resting on a foot stool.
+						<li>Mid patella</li>
+						<li>Perpendicular to the floor </li>
+						<li>Parallel to longitudinal axis of the tibia </li>
+					<div class="title">The examiner says: </div>
+						Internal rotation: “I am going to measure how much rotation you have in your hip. Can you please bring your foot out to the side as far as possible, taking care not to twist or lift off the plinth.”
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Elbow flexion.png' %}" width="60" height="60" alt="Elbow flexion" onclick="popDescription(alt)">
+            <p>Elbow flexion</p>
+            <input type="text" style="width:60px; height:23px" name="Elbow flexion">
+            <p>Degrees</p>
+			<div class="rightDescription">
+			  <span id="Elbow flexion" style = "display:none">
+				<div class="title">Assessment Position and Procedures: </div>
+					The participant is supine on the plinth with the shoulder in 0° of flexion and 20° of abduction, and forearm in full supination. A towel is placed under the distal end of the humerus to allow full elbow extension.
+					<li>Goniometer Axis: Over the lateral epicondyle of the humerus</li>
+					<li>Proximal Arm: Parallel to the longitudinal axis of the humerus pointing towards the tip of the acromion process</li>
+					<li>Distal Arm: Aligned with the lateral midline of the radius, using the radial head for reference</li>
+					<div class="title">The examiner says: </div>
+						Flexion: “I am going to measure how much movement you have in your elbow, can you please bend your elbow as far as possible, bringing your hand towards your shoulder.”
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Elbow extension.png' %}" width="60" height="60" alt="Elbow extension" onclick="popDescription(alt)">
+            <p>Elbow extension</p>
+            <input type="text" style="width:60px; height:23px" name="Elbow extension">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Elbow extension" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+					The participant is supine on the plinth with the shoulder in 0° of flexion and 20° of abduction, and forearm in full supination. A towel is placed under the distal end of the humerus to allow full elbow extension.
+					<li>Goniometer Axis: Over the lateral epicondyle of the humerus</li>
+					<li>Proximal Arm: Parallel to the longitudinal axis of the humerus pointing towards the tip of the acromion process</li>
+					<li>Distal Arm: Aligned with the lateral midline of the radius, using the radial head for reference</li>
+					<div class="title">The examiner says: </div>
+					External rotation: “Now please move your hand back as far as possible, keep your upper arm in the same position.”
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Shoulder external rotation.png' %}" width="60" height="60" alt="Shoulder external rotation" onclick="popDescription(alt)">
+            <p>Shoulder external rotation</p>
+            <input type="text" style="width:60px; height:23px" name="Shoulder external rotation">
+            <p>Newtons</p>
+			<div class="rightDescription">
+			  <span id="Shoulder external rotation" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						The participant is supine on the plinth with their knees bent, shoulder in 90° of abduction and the elbow in 90° of flexion. The forearm is perpendicular to the plinth and in neutral rotation so that the palm faces their feet.  A rolled towel is placed under the humerus so the arm is level with the acromion process.
+						<li>Goniometer Axis: Over the olecranon process</li>
+						<li>Proximal Arm: Perpendicular to the floor</li>
+						<li>Distal Arm: Aligned with the long axis of the ulna</li>
+					<div class="title">The examiner says: </div>
+						"Now please move your hand back as far as possible, keep your upper arm in the same position."
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Shoulder internal rotation.png' %}" width="60" height="60" alt="Shoulder internal rotation" onclick="popDescription(alt)">
+            <p>Shoulder internal rotation</p>
+            <input type="text" style="width:60px; height:23px" name="Shoulder internal rotation">
+            <p>Degrees</p>
+			<div class="leftDescription">
+			  <span id="Shoulder internal rotation" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+					Assessment Position and Procedures: The participant is supine on the plinth with their knees bent, shoulder in 90° of abduction and the elbow in 90° of flexion. The forearm is perpendicular to the plinth and in neutral rotation so that the palm faces their feet.  A rolled towel is placed under the humerus so the arm is level with the acromion process.
+					<li>Goniometer Axis: Over the olecranon process</li>
+					<li>Proximal Arm: Perpendicular to the floor</li>
+					<li>Distal Arm: Aligned with the long axis of the ulna</li>
+					<div class="title">The examiner says: </div>
+					"I am going to measure the rotation in your shoulder. I want you to move your hand forwards toward the floor, keeping your upper arm in the same position."
+				</span>
+			</div>
+          </div>
+      </div>
+	  
+	  <!--
+	  <div class = "calculatebutton">
+		<a href="motionresult.html" class="more">Calculate</a>
+	  </div>
+	  -->
+	  
+	  <div class = "calculatebutton">
+		<a onclick="checkMotionvalid()" class="more">Calculate</a>
+	  </div>
+	  
+	  
+	  <div id = "motion_result" style = "display:none">
+		  <div id="body">
+			  <div class="iso_head">
+				<h1> Your Joint Range of Motion Result</h1>
+			  </div>
+			  <div class="raws">
+				  <div class="same">
+					<img src="{% static 'project/images/Neck flexion.png' %}" width="60" height="60" alt="Neck flexion">
+					<p>Neck flexion</p>
+					<p id="nf">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Neck extension.png' %}" width="60" height="60" alt="Neck extension">
+					<p>Neck extension</p>
+					<p id="ne">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Plantarflexion.png' %}" width="60" height="60" alt="Plantarflexion">
+					<p>Plantarflexion</p>
+					<p id="apf">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Dorsiflexion.png' %}" width="60" height="60" alt="Dorsiflexion">
+					<p>Dorsiflexion</p>
+					<p id="ad">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Knee flexion.png' %}" width="60" height="60" alt="Knee flexion">
+					<p>Knee flexion</p>
+					<p id="kf">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Knee extension.png' %}" width="60" height="60" alt="Knee extension">
+					<p>Knee extension</p>
+					<p id="ke">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Hip flexion.png' %}" width="60" height=60" alt="Hip flexion">
+					<p>Hip flexion</p>
+					<p id="hf">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Hip external rotators.png' %}" width="60" height="60" alt="Hip external rotators">
+					<p>Hip external rotators</p>
+					<p id="her">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Hip internal rotators.png' %}" width="60" height="60" alt="Hip internal rotators">
+					<p>Hip internal rotators</p>
+					<p id="hir">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Elbow flexion.png' %}" width="60" height="60" alt="Elbow flexion">
+					<p>Elbow flexion</p>
+					<p id="ef">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Elbow extension.png' %}" width="60" height="60" alt="Elbow extension">
+					<p>Elbow extension</p>
+					<p id="ee">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Shoulder external rotation.png' %}" width="60" height="60" alt="Shoulder external rotation">
+					<p>Shoulder external rotation</p>
+					<p id="ser">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+				  <div class="same">
+					<img src="{% static 'project/images/Shoulder internal rotation.png' %}" width="60" height="60" alt="Shoulder internal rotation">
+					<p>Shoulder internal rotation</p>
+					<p id="sir">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+				  </div>
+			  </div>
+			</div>
+	  </div>
+	  
+	  
+	</div>
+			
+		<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>Find more on</h1>
+					<div>
+						<a href="https://www.facebook.com/1000NormsProject/" class="facebook">facebook</a>
+						<a href="https://twitter.com/1000Norms" class="twitter">twitter</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; 2018 BY UNIVERSITY of SYDNEY| ALL RIGHTS RESERVED</p>
+				</div>
+			</div>
+		</div>
+
+    </div>
+  
+</body>
+</html>

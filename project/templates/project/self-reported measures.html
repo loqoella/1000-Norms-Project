@@ -1,0 +1,171 @@
+<!doctype html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>self-reported measure</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'project/css/style.css' %}" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'project/css/mobile.css' %}">
+
+	<script src="{% static 'project/js/parameterdescription.js' %}" type="text/javascript"></script>
+	<!--<script src="{% static 'project/js/self-reported.js' %}" type="text/javascript"></script>-->
+
+</head>
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			if(sessionStorage.getItem("loginSuccess") == "true"){
+				document.getElementById("loginword").style.display = "none";
+				document.getElementById("loginlogo").style.display = "block";
+			}
+	  });
+	  
+	</script>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="/index" class="logo"><img src="{% static 'project/images/logo.png' %}" width="340" height="55" alt="Logo"></a>
+				<ul id="navigation">
+					<li>
+						<a href="/index">Home</a>
+					</li>
+					<li>
+						<a href="/physical_outcome_measures">Physical outcome measures</a>
+					</li>
+					<li>
+						<a href="/measurement_research">measurement research</a>	
+					</li>
+					<li class="selected">
+						<a href="/self-reported_measures">self-reported measures</a>
+						
+					</li>
+					<li>
+						<a href="/contact">Contact</a>
+					</li>
+					<li>
+						<a id="loginword" href="/login">Login</a>
+					</li>
+				</ul>
+
+				<a href="/login" class="login" id="loginlogo" style="display:none"><img src="{% static 'project/images/login.png' %}" width="50" height="50"alt=""></a>
+			</div>
+		</div>
+    <div id="body" >
+	<div class="self_measures">
+			<h1>Training videos</h1>
+			<p>The training videos are a demonstration of a participant undertaking each of the items. Additional training is also available in the CMTPedS equipment and training resource kit. The content of the CMTPedS training videos is confidential and for your individual viewing only. Please respect the privacy of the individuals involved in these videos and do not share, broadcast or send these videos to others. By proceeding at the link below, you agree to accept these terms. If individuals are interested in viewing these videos for other training activities, please contact joshua.burns@sydney.edu.au.</p>
+			<br><br>
+				<img src="{% static 'project/images/up.png' %}" id="up_pic1" width=20px height=20px alt="FDT" onclick="fun(alt, 1)">
+				<h3>Functional Dexterity Test</h3>
+				<div id="FDT" style = "display:none">
+					<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/iTfzAJX2hbM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
+				<br>
+
+				<img src="{% static 'project/images/up.png' %}" id="up_pic2" width=20px height=20px alt="NHPT" onclick="fun(alt, 2)">
+				<h3>Nine Hole Peg Test</h3>
+				<div id="NHPT" style = "display:none">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/wrN9rqhW1P0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+				</div>
+				<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic3" width=20px height=20px alt="GST" onclick="fun(alt, 3)">
+			<h3>Grip Strength Test</h3>
+			<div id="GST" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ocoP7f3Y85U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic4" width=20px height=20px alt="PST" onclick="fun(alt, 4)">
+			<h3>Plantarflexion Strength Test</h3>
+			<div id="PST" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/MsAWnRxQ_fs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic5" width=20px height=20px alt="DST" onclick="fun(alt, 5)">
+			<h3>Dorsiflexion Strength Test</h3>
+			<div id="DST" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/o-PZa3zSIWE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic6" width=20px height=20px alt="PT" onclick="fun(alt, 6)">
+			<h3>Pinprick Test</h3>
+			<div id="PT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/NgpCTSTURmA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic7" width=20px height=20px alt="VT" onclick="fun(alt, 7)">
+			<h3>Vibration Test</h3>
+			<div id="VT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/uvnl8Jw37Q8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic8" width=20px height=20px alt="BT" onclick="fun(alt, 8)">
+			<h3>Balance Test</h3>
+			<div id="BT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/rnTcn6LhK_o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic9" width=20px height=20px alt="GT" onclick="fun(alt, 9)">
+			<h3>Gait Test</h3>
+			<div id="GT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/gK_EPqnhX_A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic10" width=20px height=20px alt="LJT" onclick="fun(alt, 10)">
+			<h3>Long Jump Test</h3>
+			<div id="LJT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/SrnoVwnXhuw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br>
+
+			<img src="{% static 'project/images/up.png' %}" id="up_pic11" width=20px height=20px alt="SMWT" onclick="fun(alt ,11)">
+			<h3>Six Minute Walk Test</h3>
+			<div id="SMWT" style = "display:none">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/7i7tBpysf_Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+			</div>
+			<br><br>
+		</div>
+		</div>
+
+		<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>Find more on</h1>
+					<div>
+						<a href="https://www.facebook.com/1000NormsProject/" class="facebook">facebook</a>
+						<a href="https://twitter.com/1000Norms" class="twitter">twitter</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; 2018 BY UNIVERSITY of SYDNEY| ALL RIGHTS RESERVED</p>
+				</div>
+			</div>
+		</div>
+
+  </div>
+</body>
+<script>
+	//self-reported.js moved to here
+	function fun(alt, n)
+	{
+		var x = document.getElementById(alt);
+		x.style.display = (x.style.display == 'none')?'block':'none';
+		var name = "up_pic" + n;
+		var imgObj = document.getElementById(name);
+		var Flag=(imgObj.getAttribute("src",2)=="{% static 'project/images/up.png' %}")
+		imgObj.src=Flag?"{% static 'project/images/down.png' %}":"{% static 'project/images/up.png' %}";
+	}
+</script>
+</html>

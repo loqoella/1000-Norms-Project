@@ -1,0 +1,86 @@
+<!doctype html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1000 Norms Project</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'project/css/style.css' %}" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'project/css/mobile.css' %}">
+	<script src="{% static 'project/js/mobile.js' %}" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			if(sessionStorage.getItem("loginSuccess") == "true"){
+				document.getElementById("loginword").style.display = "none";
+				document.getElementById("loginlogo").style.display = "block";
+			}
+	  });
+	  
+	</script>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="/index" class="logo"><img src="{% static 'project/images/logo.png' %}" width="340" height="55" alt="Logo"></a>
+				<ul id="navigation">
+					<li class="menu selected">
+						<a href="/index">Home</a>
+					</li>
+					<li>
+						<a href="/physical_outcome_measures">Physical outcome measures</a>
+					</li>
+					<li>
+						<a href="/measurement_research">measurement research</a>	
+					</li>
+					<li>
+						<a href="/self-reported_measures">self-reported measures</a>
+						
+					</li>
+					<li>
+						<a href="/contact">Contact</a>
+					</li>
+					<li>
+						<a id="loginword" href="/login">Login</a>
+					</li>
+				</ul>
+				
+				<a href="/login" class="login" id="loginlogo" style="display:none"><img src="{% static 'project/images/login.png' %}" width="50" height="50"alt=""></a>
+			</div>
+		</div>
+		<div id="body" class="home">
+			<div class="header">
+				<div>
+					<img src="{% static 'project/images/satellite_1.png' %}" alt="" class="satellite">
+					<h1>1000 Norms Project</h1>
+                    <!--
+					<h2>help to check your health situation</h2>
+                    -->
+					<a href="/physical_outcome_measures" class="more">Calculate</a>
+				</div>
+			</div>
+			<div class="footer">
+
+			</div>
+		</div>
+		<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>Find more on</h1>
+					<div>
+						<a href="https://www.facebook.com/1000NormsProject/" class="facebook">facebook</a>
+						<a href="https://twitter.com/1000Norms" class="twitter">twitter</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; 2018 BY UNIVERSITY of SYDNEY| ALL RIGHTS RESERVED</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

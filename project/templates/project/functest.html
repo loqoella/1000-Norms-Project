@@ -1,0 +1,344 @@
+<!doctype html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>functest</title>
+	  {% load static %}
+	  <link rel="stylesheet" href="{% static 'project/css/style.css' %}" type="text/css">
+	  <link rel="stylesheet" type="text/css" href="{% static 'project/css/mobile.css' %}">
+	  <script src="{% static 'project/js/mobile.js' %}" type="text/javascript"></script>
+
+	  <script type="text/javascript" src="{% static 'project/js/jquery-1.4.0.min.js' %}"></script>
+	<script src="{% static 'project/js/checkinputvalid.js' %}" type="text/javascript"></script>
+	<script src="{% static 'project/js/parameterdescription.js' %}" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			if(sessionStorage.getItem("loginSuccess") == "true"){
+				document.getElementById("loginword").style.display = "none";
+				document.getElementById("loginlogo").style.display = "block";
+			}
+	  });
+	  
+	</script>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="/index" class="logo"><img src="{% static 'project/images/logo.png' %}" width="340" height="55" alt="Logo"></a>
+				<ul id="navigation">
+		          <li>
+		            <a href="/index">Home</a>
+		          </li>
+		          <li class="selected">
+		            <a href="/physical_outcome_measures">Physical outcome measures</a>
+		          </li>
+		          <li>
+		            <a href="/measurement_research">measurement research</a>  
+		          </li>
+		          <li>
+		            <a href="/self-reported_measures">self-reported measures</a>
+		            
+		          </li>
+		          <li>
+		            <a href="/contact">Contact</a>
+		          </li>
+		          <li>
+		            <a id="loginword" href="/login">Login</a>
+		          </li>
+		        </ul>
+						
+						<!--
+						<a href="login/index.html" class="login"><img src="images/login.png" width="50" height="50"alt=""></a>
+						-->
+				<a href="/login" class="login" id="loginlogo" style="display:none"><img src="{% static 'project/images/login.png' %}" width="50" height="50"alt=""></a>
+			</div>
+		</div>
+		{% csrf_token %}
+    <div id="body">
+      <div class="iso_head">
+        <h1> Functional performance </h1>
+      </div>
+      <div class="participant">
+          <h2>Participant Details</h2>
+          <div class="left">
+            <img src="{% static 'project/images/age.png' %}" width="60" height="60" alt="age">
+            <p>Age</p>
+            <input type="text" style="width:60px; height:23px" name="Age">
+            <p>years</p>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/gender.png' %}" width="60" height="60" alt="gender">
+            <p>Gender</p>
+            <select id="id_gender" name="gender"> 
+                    <option value="male">male</option> 
+                    <option value="female">female</option> 
+                </select> 
+          </div>
+      </div>
+      <div class="raws">
+          <h2>raw scores</h2>
+          <div class="left">
+            <img src="{% static 'project/images/Functional Dexterity.png' %}" width="60" height="60" alt="Functional Dexterity" onclick="popDescription(alt)">
+            <p>Functional Dexterity</p>
+            <input type="text" style="width:60px; height:23px" name="Functional Dexterity">
+            <p>seconds</p>
+			<div class="leftDescription">
+			  <span id="Functional Dexterity" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+						The participant is supine on the plinth with their knees bent, shoulder in 90° of abduction and the elbow in 90° of flexion. The forearm is perpendicular to the plinth and in neutral rotation so that the palm faces their feet. A rolled towel is placed under the humerus so the arm is level with the acromion process.
+					<div class="title">The examiner says: </div>
+						"I want you to now turn over all the pegs as fast as you can. Ready, set, go."
+              </span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Vertical jump.png' %}" width="60" height="60" alt="Vertical jump" onclick="popDescription(alt)">
+            <p>Vertical jump</p>
+            <input type="text" style="width:60px; height:23px" name="Vertical jump">
+            <p>centimetres</p>
+			<div class="rightDescription">
+			  <span id="Vertical jump" style = "display:none">
+					<div class="title">Assessment Position and Procedures: </div>
+					The participant stands on the force plate with feet shoulder width apart, footwear removed, and hands on hips. It is necessary for the participant to stand motionless on the force plate for several seconds prior to jumping to ensure that the GRF is equal to the participant’s body weight, and that the initial velocity is zero. The participant is then asked to bend down, flexing their knees to approximately 90°, then jump in a vertical direction as high as possible. The trunk is kept upright and hands on hips throughout the movement. The examiner demonstrates the movement, and the participant performs a practice jump. Three assessment jumps are then performed.
+					<div class="title">The examiner says: </div>
+					"This is an assessment to see how high you can jump. Keeping your hands on your hips and your back straight, I want you to bend your knees and then jump up as high as you can. Try and land as close as you can to where you jumped from. Ready, set, go."
+					<div class="title">Scoring:</div>
+					The following data from three valid trials are recorded: vertical jump height (cm), maximum acceleration (m/s2), maximum velocity (m/s1), velocity at take-off (m/s1), and maximum power (Watts).
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/9 Hole Peg.png' %}" width="60" height="60" alt="9 Hole Peg" onclick="popDescription(alt)">
+            <p>9 Hole Peg</p>
+            <input type="text" style="width:60px; height:23px" name="9 Hole Peg">
+            <p>seconds</p>
+			<div class="leftDescription">
+			  <span id="9 Hole Peg" style = "display:none">
+					<div class="title">Assessment Procedures: </div>
+						The examiner demonstrates the assessment using 4 pegs. The participant has a practice trial with 4 pegs using their dominant hand.
+					<div class="title">The examiner says:</div>
+						"This is a timed assessment to see how fast you can put the pegs in and take them back out. Pick up each peg one at a time. Ready, set go."
+					<div class="title">Scoring: </div>
+						The examiner starts the stopwatch on “Go” and stops timing when the last peg is returned to the container. If a peg is dropped, the timer is stopped and the peg is replaced to its initial position. The time taken to insert all 9 pegs and remove them again is recorded in seconds to the nearest tenth of a second.
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Stair climb test.png' %}" width="60" height="60" alt="Stair climb test" onclick="popDescription(alt)">
+            <p>Stair climb test</p>
+            <input type="text" style="width:60px; height:23px" name="Stair climb test">
+            <p>seconds</p>
+			<div class="rightDescription">
+			  <span id="Stair climb test" style = "display:none">
+					<div class="title">Test Position:  </div>
+						The TUDS is performed on a set of 11 non-slip stairs, with handrails on both sides. Each step is 14.5 cm high and 26 cm deep. The participant stands on the platform at the bottom of the stairs at a marked line 27 cm from the first step. The handrail may be used on a self-selected side as required for safety. The participant’s footwear is assessed using the Footwear Assessment Form.
+					<div class="title">Assessment Procedures:  </div>
+						The participant is asked to walk up the stairs, turn around on the platform and then walk back down the stairs as quickly and safely as possible without running.
+					<div class="title">The examiner says: </div>
+						"This is an assessment to see how fast you can safely go up, turn around and come back down the stairs without running. You can use one railing for balance if you like on the way up and on the way down. Please don’t pull yourself up with the railing or lean heavily on the railing on the way down. Ready, set, go."
+					<div class="title">Scoring: </div>
+						The examiner records the total time of the TUDS from when the participant initially lifts their foot to when both feet have reached the platform at the base of the stairs. The time is recorded to the nearest tenth of a second.
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/SEBT.png' %}" width="60" height="60" alt="SEBT" onclick="popDescription(alt)">
+            <p>SEBT</p>
+            <input type="text" style="width:60px; height:23px" name="SEBT">
+            <p>% leg length</p>
+			<div class="leftDescription">
+			  <span id="SEBT" style = "display:none">
+					<div class="title">Assessment Procedures:</div>
+					The participant is instructed to reach with the opposite leg in the posteromedial reach direction as far as possible, keeping their dominant foot flat on the floor and their hands on their hips . The participant is required to touch the floor lightly with the great toe of the reaching foot, and then return to a double-leg stance without changing the position of the stance foot. The assessment is explained to the participant and four practice trials are undertaken. The participant then performs the assessment three times.
+					<div class="title">The examiner says:</div>
+					“This is an assessment of your balance. I want you to keep your foot in the position you are in now and keep your hands on your hips. I want you to reach with your other foot as far as you can, lightly touch your great toe to the tape, then return to the start position with feet together.”
+					<div class="title">Scoring: </div>
+					The trial is not considered complete if the participant touches heavily or rests the reaching foot on the ground, has to make contact with the ground with the reaching foot to maintain balance, lifts or shifts any part of the
+					foot of the stance limb during the trial, or removes their hands from their hips. Marks are made along the tape by the examiner and recorded at the conclusion of the assessment. Results from three valid assessments are recorded in cm. SEBT distance can be calculated as a percentage of reach distance in relation to leg length, as follow:
+					<br>SEBT distance = Maximum Reach x 100 Limb Length
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Choice Stepping Reaction Time.png' %}" width="60" height="60" alt="Choice Stepping Reaction Time" onclick="popDescription(alt)">
+            <p>Choice stepping reaction time</p>
+            <input type="text" style="width:60px; height:23px" name="Choice Stepping Reaction Time">
+            <p>ms</p>
+			<div class="rightDescription">
+			  <span id="Choice Stepping Reaction Time" style = "display:none">
+					<div class="title">Assessment Position:</div>
+					For the CSRT assessment, the participant stands on a nonslip black platform (0.8 × 0.8 m) containing four rectangular panels (32 × 13 cm), one in front of each foot and one to the side of each foot. The participant stands on two central plates with the examiner standing close by for safety.
+					<div class="title">Assessment Procedures: </div>
+					The participant is informed that the plates are going to light up one at a time, in a randomised order, and at a randomised time between two to four seconds. The participant is asked to step firmly on the plate as quickly as possible, using the left foot only for the two left panels (front and side) and the right foot only for the two right panels. The examiner provides feedback to the participant between trials as required regarding foot placement, stepping speed and firmness, and weight bearing on each leg. The participant must return to the starting position before the next trial can commence. The examiner demonstrates the assessment and the participant has one practice trial with eight steps (two trials for each of the four directions). The participant then performs one assessment consisting of 20 steps (five trials for each of the four directions).
+					<div class="title">The examiner says:</div>
+					"This is a task to measure your stepping reaction time. When a light appears on one of the panels I want you to step firmly on that plate as quickly as possible using the leg on the same side as the light. Then return to the starting position with both feet on the central plates. Ready, set, go."
+					<div class="title">Scoring: </div>
+					If the participant steps with the wrong foot it is recorded as an error. Data are collected for 20 trials, five trials in each stepping direction, and the average latency, movement and total reaction times for the right and left lower limbs are calculated.
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/Long Jump.png' %}" width="60" height=60" alt="Long Jump" onclick="popDescription(alt)">
+            <p>Long Jump</p>
+            <input type="text" style="width:60px; height:23px" name="Long Jump">
+            <p>centimetres</p>
+			<div class="leftDescription">
+			  <span id="Long Jump" style = "display:none">
+					<div class="title">Assessment Procedures:</div>
+						The participant is instructed to jump as far forward as possible, making sure they land and take off with both feet simultaneously. Swinging the arms is permitted.The examiner demonstrates the jump and the participant has one practice trial before performing the assessment.
+					<div class="title">The examiner says:</div>
+						"his is an assessment to see how far you can jump. I want you to jump forward as far as you can, taking off and landing with both feet at the same time. Ready, set, go."
+					<div class="title">Scoring: </div>
+						The point where the heel of the foot nearest to the start line touches the floor is marked using a removable marker and this distance is recorded. Three valid measures are recorded to the nearest cm. If the examiner deems this item to be a safety risk for the participant, or if the participant declines to complete the assessment, a score of zero is recorded.
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/30-sec sit to stand test.png' %}" width="60" height="60" alt="30-sec sit to stand test" onclick="popDescription(alt)">
+            <p>30-sec sit to stand test</p>
+            <input type="text" style="width:60px; height:23px" name="30-sec sit to stand test">
+            <p>number</p>
+			<div class="rightDescription">
+			  <span id="30-sec sit to stand test" style = "display:none">
+					<div class="title">Assessment Position:</div>
+					The participant sits comfortably, with their sacrum in the middle of the chair. The height of the seat is adjusted so that the participant sits with their hips and knees flexed at 90°. The participant is asked to fold their wrists across their chest, and not to rest against the back of the chair during the assessment. The examiner stands to the side of the participant holding a stop watch.
+					<div class="title">Assessment Procedures: </div>
+					The participant is asked to perform one practice stand. The participant is then asked to perform as many repetitions as possible in 30 seconds. No encouragement is offered by the examiner during the assessment.
+					<div class="title">The examiner says:</div>
+					"This assessment looks at how many times you can sit and stand as quickly as possible from the chair in 30 seconds. You must fully sit down with your bottom touching the seat and stand up for the repetition to be counted. When I say go you will start the assessment, you can stop at any time as you need to. Ready, set, go."
+					<div class="title">Scoring: </div>
+					Repetitions where the arms are used for support are not counted. The number of full sit to stands performed in the 30 seconds is recorded.
+				</span>
+			</div>
+          </div>
+          <div class="left">
+            <img src="{% static 'project/images/6 Minutes Walk.png' %}" width="60" height="60" alt="6 Minute Walk" onclick="popDescription(alt)">
+            <p>6 Minute Walk</p>
+            <input type="text" style="width:60px; height:23px" name="6 Minute Walk">
+            <p>metres</p>
+			<div class="leftDescription">
+			  <span id="6 Minute Walk" style = "display:none">
+					<div class="title">The examiner says:</div>
+						"This item measures how far you can walk in six minutes. When I say go I want you to walk as fast as you comfortably can, without running, for six minutes. I will count your laps and tell you how much time is remaining at each minute. You can stop to take rests if you need to and then keep going, or you can cease the assessment if you can’t go any further. Ready, set, go."
+					<div class="title">Scoring: </div>
+						Each time the participant rounds a cone the examiner records the lap on the counter. The total number of complete laps is recorded and multiplied by the length of the walking course. The extra distance walked in the final lap is measured using a tape measure alongside the track and added to the total. The final 6MWD is recorded to the nearest metre.
+				</span>
+			</div>
+          </div>
+          <div class="right">
+            <img src="{% static 'project/images/Balance.png' %}" width="60" height="60" alt="Balance" onclick="popDescription(alt)">
+            <p>Balance</p>
+            <input type="text" style="width:60px; height:23px" name="Balance">
+            <p>BOT score</p>
+			<div class="rightDescription">
+			  <span id="Balance" style = "display:none">
+					<em>Bruininks-Oseretsky Test of Motor Proficiency, Second Edition (BOT-2) (NCS Pearson, Upper Saddle River, NJ, USA): Balance subtest.</em>
+					<div class="title">Background/Purpose:</div>
+					The BOT-2 is an individually administered assessment that uses engaging, goal-directed activities to measure a wide array of motor skills. The BOT-2 is regarded as a reliable and valid measure of motor ability in individuals aged 4 to 21 years. To assess balance performance, the Balance Subtest (2) comprising nine items is used.
+					<div class="title">Assessment Procedures:</div>
+					Tests of standing and walking balance include: standing with feet apart on a line (eyes open/closed); walking forward on a line and walking forward heel-to-toe on a line; standing on one leg on a line (eyes open/closed); standing on one leg on a balance beam (eyes open/closed); and standing heel-to-toe on a balance beam.
+					<br>Please refer to the Bruininks-Oseretsky Test of Motor Proficiency, Second Edition (BOT-2) manual for details on how to perform each of the 9 items (NCS Pearson, Upper Saddle River, NJ, USA).
+				</span>
+			</div>
+          </div>
+
+      </div>
+	  
+	  <!--
+	  	  <div class = "calculatebutton">
+		<a href="funcresult.html" class="more">Calculate</a>
+	  </div>
+	  -->
+	  
+	  <div class = "calculatebutton">
+		<a onclick="checkFuncvalid()" class="more">Calculate</a>
+	  </div>
+	  
+	  <div id = "func_result" style = "display:none">
+		  <div id="body">
+		  <div class="iso_head">
+			<h1>Your Functional performance Result</h1>
+		  </div>
+		  <div class="raws">
+			  <div class="same">
+				<img src="{% static 'project/images/Functional Dexterity.png' %}" width="60" height="60" alt="Functional Dexterity">
+				<p>Functional Dexterity</p>
+				<p id="fdt">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/Vertical jump.png' %}" width="60" height="60" alt="Vertical jump">
+				<p>Vertical jump</p>
+				<p id="vj">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/9 Hole Peg.png' %}" width="60" height="60" alt="9 Hole Peg">
+				<p>9 Hole Peg</p>
+				<p id="hpt9">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/Stair climb test.png' %}" width="60" height="60" alt="Stair climb test">
+				<p>Stair climb test</p>
+				<p id="tst">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/SEBT.png' %}" width="60" height="60" alt="SEBT">
+				<p>SEBT</p>
+				<p id="seb">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/Choice Stepping Reaction Time.png' %}" width="60" height="60" alt="Choice Stepping Reaction Time">
+				<p>Choice stepping reaction time</p>
+				<p id="csrt">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/Long Jump.png' %}" width="60" height=60" alt="Long Jump">
+				<p>Long Jump</p>
+				<p id="lj">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/30-sec sit to stand test.png' %}" width="60" height="60" alt="30-sec sit to stand test">
+				<p>30-sec sit to stand test</p>
+				<p id="sts">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/6 Minutes Walk.png' %}" width="60" height="60" alt="6 Minute Walk">
+				<p>6 Minute Walk</p>
+				<p id="mwt6">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAINEXPL</p>
+			  </div>
+			  <div class="same">
+				<img src="{% static 'project/images/Balance.png' %}" width="60" height="60" alt="Balance">
+				<p>Balance</p>
+				<p id="botb">EXPLAINEXPLAINEXPLAINEXPLAINEXPLAIN</p>
+			  </div>
+
+		  </div>
+
+		</div>
+	  </div>
+	  
+    </div>
+
+			<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>Find more on</h1>
+					<div>
+						<a href="https://www.facebook.com/1000NormsProject/" class="facebook">facebook</a>
+						<a href="https://twitter.com/1000Norms" class="twitter">twitter</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; 2018 BY UNIVERSITY of SYDNEY| ALL RIGHTS RESERVED</p>
+				</div>
+			</div>
+		</div>
+
+  </div>
+</body>
+</html>
